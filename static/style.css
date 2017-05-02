@@ -1,0 +1,16 @@
+#wrapper {
+    padding: 0px 100px;
+    /*width: 85%;*/
+}
+
+#header {
+    background-color: #ff6600;
+}
+
+#header > h3 {
+    padding: 5px 10px;
+}
+
+#content {
+    background-color: #f6f6ef;
+}
