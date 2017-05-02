@@ -31,6 +31,7 @@ post_four = Posts(**{
 
 config.db.session.add(user_one)
 config.db.session.add(user_two)
+config.db.session.add(user_three)
 
 config.db.session.add(post_one)
 config.db.session.add(post_two)

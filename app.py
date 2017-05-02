@@ -4,8 +4,10 @@ from model import *
 
 @app.route('/')
 def home():
+    posts = get_all_posts()
     return render_template(
-        'home.html'
+        'home.html',
+        posts = posts
     )
 
 if __name__ == "__main__":

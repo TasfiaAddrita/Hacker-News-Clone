@@ -27,8 +27,8 @@ class Posts(db.Model):
     def __init__(self, **kwargs):
         self.user_id = kwargs.get('user_id')
         self.title = kwargs.get('title')
-        self.url = kwargs.get('url')
-        self.text = kwargs.get('text')
+        self.url = kwargs.get('url', 'N/A')
+        self.text = kwargs.get('text', 'N/A')
 
 class Comments(db.Model):
     __tablename__ = 'comments'
@@ -41,3 +41,24 @@ class Comments(db.Model):
         self.user_id = kwargs.get('user_id')
         self.post_id = kwargs.get('post_id')
         self.comment = kwargs.get('comment')
+
+def get_username(user_id):
+    sql_username = Users.query.filter_by(user_id = user_id).first()
+    print(sql_username)
+    return sql_username.username
+
+def get_all_posts():
+    all_posts = []
+    sql_posts = Posts.query.all()
+    # print(sql_posts)
+
+    for posts in sql_posts:
+        post = {
+            "username": get_username(posts.user_id),
+            "title": posts.title,
+            "url": posts.url,
+            "text": posts.text
+        }
+        all_posts.append(post)
+
+    return all_posts

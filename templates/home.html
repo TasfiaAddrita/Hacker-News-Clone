@@ -6,6 +6,12 @@
         <h3>Hackers News</h3>
     </div>
     <div id='content'>
+        <ol>
+            {% for post in posts %}
+                <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+                <p>posted by: {{ post.username }}</p>
+            {% endfor %}
+        </ol>
     </div>
 </div>
 {% endblock %}
